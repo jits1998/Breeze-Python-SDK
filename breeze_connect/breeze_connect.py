@@ -16,7 +16,7 @@ import logging
 dirs = os.path.dirname(os.path.abspath(__file__))
 
 sys.path.insert(1,dirs)
-import config
+from . import config
 import socket
 
 
