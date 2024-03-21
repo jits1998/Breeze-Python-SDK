@@ -985,8 +985,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             response = self.make_request(
                 req_type.GET, api_endpoint.CUST_DETAILS.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             if 'Success' in response and response['Success'] != None and 'session_token' in response['Success']:
                 del response['Success']['session_token']
             return response
@@ -999,8 +999,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.GET,api_endpoint.DEMAT_HOLDING.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_demat_holdings.__name__,e)
@@ -1011,8 +1011,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.GET, api_endpoint.FUND.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_funds.__name__,e)
@@ -1038,8 +1038,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.POST, api_endpoint.FUND.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.set_funds.__name__,e)
@@ -1093,8 +1093,8 @@ class ApificationBreeze():
             headers = self.generate_headers(body)
             response = self.make_request(
                 req_type.GET, api_endpoint.HIST_CHART.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_historical_data.__name__,e)
@@ -1147,8 +1147,8 @@ class ApificationBreeze():
             }
             url = config.BREEZE_NEW_URL + api_endpoint.HIST_CHART.value
             response = requests.get(url=url, params=url_params, headers=headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_historical_data_v2.__name__,e)
@@ -1194,8 +1194,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.POST, api_endpoint.MARGIN.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.add_margin.__name__,e)
@@ -1211,8 +1211,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.GET,  api_endpoint.MARGIN.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_margin.__name__,e)
@@ -1280,8 +1280,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.POST, api_endpoint.ORDER.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.place_order.__name__,e)
@@ -1301,8 +1301,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.GET, api_endpoint.ORDER.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_order_detail.__name__,e)
@@ -1325,8 +1325,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.GET, api_endpoint.ORDER.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_order_list.__name__,e)
@@ -1346,8 +1346,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.DELETE, api_endpoint.ORDER.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.cancel_order.__name__,e)
@@ -1385,8 +1385,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.PUT, api_endpoint.ORDER.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.modify_order.__name__,e)
@@ -1411,8 +1411,8 @@ class ApificationBreeze():
             headers = self.generate_headers(body)
             response = self.make_request(
                 req_type.GET, api_endpoint.PORTFOLIO_HOLDING.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_portfolio_holdings.__name__,e)
@@ -1424,8 +1424,8 @@ class ApificationBreeze():
             headers = self.generate_headers(body)
             response = self.make_request(
                 req_type.GET, api_endpoint.PORTFOLIO_POSITION.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_portfolio_positions.__name__,e)
@@ -1457,8 +1457,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.GET, api_endpoint.QUOTE.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_quotes.__name__,e)
@@ -1500,8 +1500,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.GET, api_endpoint.OPT_CHAIN.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_option_chain_quotes.__name__,e)
@@ -1537,8 +1537,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.POST, api_endpoint.SQUARE_OFF.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.square_off.__name__,e)
@@ -1568,8 +1568,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.GET, api_endpoint.TRADE.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_trade_list.__name__s,e)
@@ -1588,8 +1588,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.GET, api_endpoint.TRADE.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.get_trade_detail.__name__,e)
@@ -1674,8 +1674,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.POST, api_endpoint.LIMIT_CALCULATOR.value, body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
             
         except Exception as e:
@@ -1690,8 +1690,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.POST, api_endpoint.MARGIN_CALULATOR.value , body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.margin_calculator.__name__, e)
@@ -1729,8 +1729,8 @@ class ApificationBreeze():
             body = json.dumps(body, separators=(',', ':'))
             headers = self.generate_headers(body)
             response = self.make_request(req_type.GET, "preview_order", body, headers)
-            response = response.json()
             response.raise_for_status()
+            response = response.json()
             return response
         except Exception as e:
             self.error_exception(self.preview_order.__name__,e)
