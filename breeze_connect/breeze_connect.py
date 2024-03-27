@@ -926,6 +926,8 @@ class ApificationBreeze():
             (self.breeze.user_id + ":" + self.breeze.session_key).encode('ascii')).decode('ascii')
         
     def error_exception(self,func_name,error):
+        if isinstance(error, requests.exceptions.HTTPError):
+            raise error 
         message = "{0}() Error".format(func_name)
         raise Exception(message).with_traceback(error.__traceback__)
 
